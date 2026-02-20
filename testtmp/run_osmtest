@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="1" failures="1" disabled="0" errors="0" time="0." timestamp="2026-02-20T07:58:31.596" name="AllTests">
+  <testsuite name="OSMTest" tests="1" failures="1" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-02-20T07:58:31.596">
+    <testcase name="SimpleFiles" file="testsrc/OpenStreetMapTest.cpp" line="5" status="run" result="completed" time="0." timestamp="2026-02-20T07:58:31.596" classname="OSMTest">
+      <failure message="testsrc/OpenStreetMapTest.cpp:19&#x0A;Expected equality of these values:&#x0A;  OpenStreetMap.NodeCount()&#x0A;    Which is: 0&#x0A;  2&#x0A;" type=""><![CDATA[testsrc/OpenStreetMapTest.cpp:19
+Expected equality of these values:
+  OpenStreetMap.NodeCount()
+    Which is: 0
+  2
+]]></failure>
+      <failure message="testsrc/OpenStreetMapTest.cpp:20&#x0A;Expected equality of these values:&#x0A;  OpenStreetMap.WayCount()&#x0A;    Which is: 0&#x0A;  1&#x0A;" type=""><![CDATA[testsrc/OpenStreetMapTest.cpp:20
+Expected equality of these values:
+  OpenStreetMap.WayCount()
+    Which is: 0
+  1
+]]></failure>
+      <failure message="testsrc/OpenStreetMapTest.cpp:21&#x0A;Expected: (OpenStreetMap.NodeByIndex(0)) != (nullptr), actual: (nullptr) vs (nullptr)&#x0A;" type=""><![CDATA[testsrc/OpenStreetMapTest.cpp:21
+Expected: (OpenStreetMap.NodeByIndex(0)) != (nullptr), actual: (nullptr) vs (nullptr)
+]]></failure>
+      <failure message="testsrc/OpenStreetMapTest.cpp:22&#x0A;Expected: (OpenStreetMap.NodeByIndex(1)) != (nullptr), actual: (nullptr) vs (nullptr)&#x0A;" type=""><![CDATA[testsrc/OpenStreetMapTest.cpp:22
+Expected: (OpenStreetMap.NodeByIndex(1)) != (nullptr), actual: (nullptr) vs (nullptr)
+]]></failure>
+      <failure message="testsrc/OpenStreetMapTest.cpp:24&#x0A;Expected: (OpenStreetMap.WayByIndex(0)) != (nullptr), actual: (nullptr) vs (nullptr)&#x0A;" type=""><![CDATA[testsrc/OpenStreetMapTest.cpp:24
+Expected: (OpenStreetMap.WayByIndex(0)) != (nullptr), actual: (nullptr) vs (nullptr)
+]]></failure>
+      <failure message="testsrc/OpenStreetMapTest.cpp:27&#x0A;Expected: (TempNode) != (nullptr), actual: (nullptr) vs (nullptr)&#x0A;" type=""><![CDATA[testsrc/OpenStreetMapTest.cpp:27
+Expected: (TempNode) != (nullptr), actual: (nullptr) vs (nullptr)
+]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
