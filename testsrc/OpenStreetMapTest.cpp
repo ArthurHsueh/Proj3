@@ -8,8 +8,8 @@ TEST(OSMTest, SimpleFiles){
 	                                                            "  <node id=\"1\" lat=\"38.5\" lon=\"-121.7\"/>\n"
 	                                                            "  <node id=\"2\" lat=\"38.5\" lon=\"-121.8\"/>\n"
                                                                 "  <way id=\"100\">\n"
-		                                                        "    <nd ref=\"258592863\"/>\n"
-		                                                        "    <nd ref=\"4399281377\"/>\n"
+		                                                        "    <nd ref=\"1\"/>\n"
+		                                                        "    <nd ref=\"2\"/>\n"
                                                                 "  </way>\n"
                                                                 "</osm>"
                                                                 );

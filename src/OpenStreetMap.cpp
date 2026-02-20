@@ -95,7 +95,7 @@ struct COpenStreetMap::SImplementation{
 
 
     bool ParseWays(std::shared_ptr<CXMLReader> src, SXMLEntity &firstentity){
-
+        return true;
     }
 
     bool ParseOpenStreetMap(std::shared_ptr<CXMLReader> src){
