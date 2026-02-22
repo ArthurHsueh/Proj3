@@ -77,7 +77,12 @@ struct CCSVBusSystem::SImplementation{
             while(stopsrc->ReadRow(TempRow)){ //read the rest of the rows
                 TStopID StopID = std::stoull(TempRow[StopColumn]);
                 CStreetMap::TNodeID NodeID = std::stoull(TempRow[NodeColumn]);
-                auto NewStop = std::make_shared< SStop >(); //create 
+
+                if(DStopsByID.find(StopID) != DStopsByID.end()){ //duplicate stop id check
+                    return false; //don't load any more stops
+                }
+
+                auto NewStop = std::make_shared< SStop >(); //create new stop, add it to the vector and map
                 NewStop->DID = StopID;
                 NewStop->DNodeID = NodeID;
                 DStopsByIndex.push_back(NewStop);
@@ -109,6 +114,10 @@ struct CCSVBusSystem::SImplementation{
             while(routesrc->ReadRow(TempRow)){ //read the rest of the rows
                 std::string RouteName = TempRow[NameColumn];
                 TStopID StopID = std::stoull(TempRow[StopIDsColumn]);
+                
+                if(DStopsByID.find(StopID) == DStopsByID.end()){ //route references stop that doesn't exist
+                    return false;
+                }
                 
                 if(DRoutesByName.find(RouteName) == DRoutesByName.end()){ //if route doesn't exist, create it
                     auto NewRoute = std::make_shared<SRoute>();
@@ -219,6 +228,3 @@ std::shared_ptr<CBusSystem::SRoute> CCSVBusSystem::RouteByIndex(std::size_t inde
 std::shared_ptr<CBusSystem::SRoute> CCSVBusSystem::RouteByName(const std::string &name) const noexcept{
     return DImplementation->RouteByName(name);
 }
-
-
-

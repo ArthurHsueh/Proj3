@@ -228,7 +228,7 @@ TEST(DSVReaderTest, SingleRowTestEdgeCase2){
     
 }
 
-TEST(DSVREaderTest, SingleRowTestWithQuoteDelimiter){
+TEST(DSVReaderTest, SingleRowTestWithQuoteDelimiter){
     std::shared_ptr<CStringDataSource> DataSource = std::make_shared<CStringDataSource>("A,B,C");
     CDSVReader Reader(DataSource, '\"');
     std::vector<std::string> row = {};

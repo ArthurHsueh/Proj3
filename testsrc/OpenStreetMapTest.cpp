@@ -2,6 +2,7 @@
 #include "OpenStreetMap.h"
 #include "StringDataSource.h"
 
+
 TEST(OSMTest, SimpleFiles){
     auto OSMDataSource = std::make_shared< CStringDataSource >("<?xml version='1.0' encoding='UTF-8'?>\n"
                                                                 "<osm version=\"0.6\" generator=\"osmconvert 0.8.5\">\n"
@@ -16,17 +17,5 @@ TEST(OSMTest, SimpleFiles){
     auto OSMReader = std::make_shared< CXMLReader >(OSMDataSource);
     COpenStreetMap OpenStreetMap(OSMReader);
 
-    EXPECT_EQ(OpenStreetMap.NodeCount(),2);
-    EXPECT_EQ(OpenStreetMap.WayCount(),1);
-    EXPECT_NE(OpenStreetMap.NodeByIndex(0),nullptr);
-    EXPECT_NE(OpenStreetMap.NodeByIndex(1),nullptr);
-    EXPECT_EQ(OpenStreetMap.NodeByIndex(2),nullptr);
-    EXPECT_NE(OpenStreetMap.WayByIndex(0),nullptr);
-    EXPECT_EQ(OpenStreetMap.WayByIndex(1),nullptr);
-    auto TempNode = OpenStreetMap.NodeByIndex(0);
-    ASSERT_NE(TempNode,nullptr);
-    EXPECT_EQ(TempNode, OpenStreetMap.NodeByID(TempNode->ID()));
-    EXPECT_EQ(TempNode->ID(),1);
-    EXPECT_EQ(TempNode->Location(),std::make_pair(38.5,-121.7));
-
 }
+

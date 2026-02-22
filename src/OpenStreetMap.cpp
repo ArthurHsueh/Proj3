@@ -13,58 +13,58 @@ struct COpenStreetMap::SImplementation{
         TLocation DLocation;
         ~SNode(){};
         TNodeID ID() const noexcept override{
-
+            return DID;
         }
 
         TLocation Location() const noexcept override{
-
+            return DLocation;
         }
 
         std::size_t AttributeCount() const noexcept override{
-
+            return 0;
         }
 
         std::string GetAttributeKey(std::size_t index) const noexcept override{
-
+            return std::string();
         }
 
         bool HasAttribute(const std::string &key) const noexcept override{
-
+            return false;
         }
 
         std::string GetAttribute(const std::string &key) const noexcept override{
-
+            return std::string();
         }
     };
 
     struct SWay: public CStreetMap::SWay{
         ~SWay(){};
         TWayID ID() const noexcept override{
-
+            return 0;
         }
 
         std::size_t NodeCount() const noexcept override{
-
+            return 0;
         }
 
         TNodeID GetNodeID(std::size_t index) const noexcept override{
-
+            return 0;
         }
 
         std::size_t AttributeCount() const noexcept override{
-
+            return 0;
         }
 
         std::string GetAttributeKey(std::size_t index) const noexcept override{
-
+            return std::string();
         }
 
         bool HasAttribute(const std::string &key) const noexcept override{
-
+            return false;
         }
 
         std::string GetAttribute(const std::string &key) const noexcept override{
-
+            return std::string();
         }
     };
     std::vector<std::shared_ptr<SNode>> DNodesByIndex;
