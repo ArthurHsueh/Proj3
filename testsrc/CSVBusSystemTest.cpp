@@ -29,23 +29,39 @@ TEST(CSVBusSystem, SimpleFiles){
     EXPECT_EQ(StopObj->NodeID(),124);
 
 }
-/*
-//tests what happens when the bus system is empty
-TEST(CSVBusSystem, EmptyBusSystem){
-    auto StopDataSource = std::make_shared< CStringDataSource >("stop_id,node_id\n");
+
+//tests SStop member functions 
+TEST(CSVBusSystem, SStopTest){
+    auto StopDataSource = std::make_shared< CStringDataSource >("stop_id,node_id\n"
+                                                                "1,123\n");
     auto StopReader = std::make_shared< CDSVReader >(StopDataSource,',');
-    auto RouteDataSource = std::make_shared< CStringDataSource >("route,stop_id\n");
+    auto RouteDataSource = std::make_shared< CStringDataSource >("route,stop_id\n"
+                                                                "A,1\n");
     auto RouteReader = std::make_shared< CDSVReader >(RouteDataSource,',');
     
     CCSVBusSystem BusSystem(StopReader,RouteReader);
-    
-    EXPECT_EQ(BusSystem.StopCount(),0);
-    EXPECT_EQ(BusSystem.RouteCount(),0);
-    EXPECT_EQ(BusSystem.StopByIndex(0), nullptr);
-    EXPECT_EQ(BusSystem.StopByID(1), nullptr);
-
+    auto StopObj = BusSystem.StopByIndex(0);
+    ASSERT_NE(StopObj,nullptr);
+    EXPECT_EQ(StopObj->ID(),1);
+    EXPECT_EQ(StopObj->NodeID(),123);
 }
-*/
+
+//tests SRoute member functions
+TEST(CSVBusSystem, SRouteTest){
+    auto StopDataSource = std::make_shared< CStringDataSource >("stop_id,node_id\n"
+                                                                "1,123\n");
+    auto StopReader = std::make_shared< CDSVReader >(StopDataSource,',');
+    auto RouteDataSource = std::make_shared< CStringDataSource >("route,stop_id\n"
+                                                                "A,1\n");
+    auto RouteReader = std::make_shared< CDSVReader >(RouteDataSource,',');
+    CCSVBusSystem BusSystem(StopReader,RouteReader);
+    auto RouteObj = BusSystem.RouteByName("A");
+    ASSERT_NE(RouteObj,nullptr);
+    EXPECT_EQ(RouteObj->Name(),"A");
+    EXPECT_EQ(RouteObj->StopCount(),1);
+    EXPECT_EQ(RouteObj->GetStopID(0),1);
+}
+
 //tests what happens when accessing a node that doesn't exist by index
 TEST(CSVBusSystem, OutOfBoundsIndex){ 
     auto StopDataSource = std::make_shared< CStringDataSource >("stop_id,node_id\n"
@@ -195,5 +211,64 @@ TEST(CSVBusSystem, RouteGetStopIDOutOfBounds){
     ASSERT_NE(RouteObj,nullptr);
     EXPECT_EQ(RouteObj->GetStopID(2), CBusSystem::InvalidStopID);
     EXPECT_EQ(RouteObj->GetStopID(10231231241), CBusSystem::InvalidStopID);
+}
+*/
+
+//advanced tests
+TEST(CSVBusSystem, LotsOfNodes){
+    auto StopDataSource = std::make_shared< CStringDataSource >("stop_id,node_id\n"
+                                                                "1,101\n"
+                                                                "2,102\n"
+                                                                "3,103\n"
+                                                                "4,104\n"  
+                                                                "5,105\n"
+                                                                "6,106\n"
+                                                                "7,107\n"
+                                                                "8,108\n"
+                                                                "9,109\n"
+                                                                "10,110\n");
+    auto StopReader = std::make_shared< CDSVReader >(StopDataSource,',');
+    auto RouteDataSource = std::make_shared< CStringDataSource >("route,stop_id\n"
+                                                                "A,1\n"
+                                                                "A,2\n"
+                                                                "A,3\n"
+                                                                "A,4\n"
+                                                                "A,5\n"
+                                                                "A,6\n"
+                                                                "A,7\n"
+                                                                "A,8\n"
+                                                                "A,9\n"
+                                                                "A,10\n");
+    auto RouteReader = std::make_shared< CDSVReader >(RouteDataSource,',');
+    CCSVBusSystem BusSystem(StopReader,RouteReader);
+    EXPECT_EQ(BusSystem.StopCount(),10);
+    EXPECT_EQ(BusSystem.RouteCount(),1);
+    auto RouteObj = BusSystem.RouteByName("A");
+    ASSERT_NE(RouteObj,nullptr);
+    EXPECT_EQ(RouteObj->StopCount(),10);
+}
+
+
+
+
+
+
+
+/*
+//tests what happens when the bus system is empty
+//cant test because it always passes skeleton functions
+TEST(CSVBusSystem, EmptyBusSystem){
+    auto StopDataSource = std::make_shared< CStringDataSource >("stop_id,node_id\n");
+    auto StopReader = std::make_shared< CDSVReader >(StopDataSource,',');
+    auto RouteDataSource = std::make_shared< CStringDataSource >("route,stop_id\n");
+    auto RouteReader = std::make_shared< CDSVReader >(RouteDataSource,',');
+    
+    CCSVBusSystem BusSystem(StopReader,RouteReader);
+    
+    EXPECT_EQ(BusSystem.StopCount(),0);
+    EXPECT_EQ(BusSystem.RouteCount(),0);
+    EXPECT_EQ(BusSystem.StopByIndex(0), nullptr);
+    EXPECT_EQ(BusSystem.StopByID(1), nullptr);
+
 }
 */
