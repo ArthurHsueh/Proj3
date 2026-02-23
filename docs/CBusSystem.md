@@ -73,24 +73,33 @@ std::size_t totalRoutes = BusSystem->RouteCount();
 Use StopByIndex() or StopByID() with a known stop ID to access a specific stop. 
 
 Example:
+
 auto stop = BusSystem->StopByIndex(0);
+
 auto stopByID = BusSystem->StopByID(1);
 
 From a stop object, you can call ID() to get its stop ID and NodeID() to get its corresponding street map node. 
 
 Example:
+
 stop->ID();
+
 stop->NodeID();
 
 To access a route, use RouteByName() with the route's name or RouteByIndex() with an index. 
 
 Example:
+
 auto route = BusSystem->RouteByName("A");
+
 auto routebyindex = BusSystem->RouteByIndex(0);
 
 From a route object, you can call Name() for its name, StopCount() for the number of stops, and GetStopID() with an index to get each stop ID in order.
 
 Example:
+
 route->Name();      
+
 route->StopCount(); 
+
 route->GetStopID(0);
