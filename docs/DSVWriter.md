@@ -5,7 +5,7 @@ This class implements a writer for DSV data. It uses the CDataSink class to outp
 ## Constructor
 
 #### CDSVWriter(std::shared_ptr< CDataSink > sink, char delimiter, bool quoteall = false);
-The Reader accepts a CDataSink object, a character delimiter, and a boolean that checks whether written data should be enclosed by double quotes. It also includes an if statement to check whether a double quote is specified as the delimiter, in which case the Reader handles it as a comma. 
+The Writer accepts a CDataSink object, a character delimiter, and a boolean that checks whether written data should be enclosed by double quotes. It also includes an if statement to check whether a double quote is specified as the delimiter, in which case the Reader handles it as a comma. 
  
 ## Functions
 

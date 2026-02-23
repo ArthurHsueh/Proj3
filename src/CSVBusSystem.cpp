@@ -12,11 +12,11 @@ struct CCSVBusSystem::SImplementation{
         }
 
         TStopID ID() const noexcept{
-
+            return 0;
         }
 
         CStreetMap::TNodeID NodeID() const noexcept{
-
+            return 0; 
         }
     };
 
@@ -26,15 +26,15 @@ struct CCSVBusSystem::SImplementation{
         }
 
         std::string Name() const noexcept{
-
+            return "";
         }
 
         std::size_t StopCount() const noexcept{
-
+            return 0;
         }
 
         TStopID GetStopID(std::size_t index) const noexcept{
-
+            return 0;
         }
     };
 
@@ -83,27 +83,27 @@ struct CCSVBusSystem::SImplementation{
     }
 
     std::size_t StopCount() const noexcept{
-
+        return 0;
     }
 
     std::size_t RouteCount() const noexcept{
-
+        return 0;
     }
 
     std::shared_ptr<SStop> StopByIndex(std::size_t index) const noexcept{
-
+        return nullptr;
     }
 
     std::shared_ptr<SStop> StopByID(TStopID id) const noexcept{
-
+        return nullptr;
     }
 
     std::shared_ptr<SRoute> RouteByIndex(std::size_t index) const noexcept{
-
+        return nullptr; 
     }
 
     std::shared_ptr<SRoute> RouteByName(const std::string &name) const noexcept{
-
+        return nullptr;
     }
 
 
@@ -126,19 +126,19 @@ std::size_t CCSVBusSystem::RouteCount() const noexcept{
 }
 
 std::shared_ptr<CBusSystem::SStop> CCSVBusSystem::StopByIndex(std::size_t index) const noexcept{
-
+    return nullptr;
 }
 
 std::shared_ptr<CBusSystem::SStop> CCSVBusSystem::StopByID(TStopID id) const noexcept{
-
+    return nullptr;
 }
 
 std::shared_ptr<CBusSystem::SRoute> CCSVBusSystem::RouteByIndex(std::size_t index) const noexcept{
-
+    return nullptr;
 }
 
 std::shared_ptr<CBusSystem::SRoute> CCSVBusSystem::RouteByName(const std::string &name) const noexcept{
-
+    return nullptr;
 }
 
 

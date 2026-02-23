@@ -384,6 +384,7 @@ TEST(OSMTest, LongFile){
     EXPECT_EQ(TempNode->GetAttribute("junction"), "roundabout");
     EXPECT_EQ(TempNode->GetAttribute("start_date"), "2018-01-15");
 
+    EXPECT_EQ(OpenStreetMap.NodeByID(789), nullptr);
 
     //Testing Ways
     auto TempWay = OpenStreetMap.WayByIndex(0);
@@ -480,6 +481,10 @@ TEST(OSMTest, LongFile){
     EXPECT_EQ(TempWay->GetAttribute("destination:ref"), "CA 113 North");
     EXPECT_EQ(TempWay->GetAttribute("highway"), "motorway_link");
     EXPECT_EQ(TempWay->GetAttribute("oneway"), "yes");
+
+    EXPECT_EQ(OpenStreetMap.WayByID(789), nullptr);
+    EXPECT_EQ(TempWay->GetNodeID(789), CStreetMap::InvalidNodeID);
+
 }
 
 TEST(OSMTest, MissingWayFile){
@@ -541,4 +546,38 @@ TEST(OSMTest, MissingWayID){
 
     auto TempWay = OpenStreetMap.WayByIndex(0);
     EXPECT_EQ(TempWay, nullptr);
+}
+
+
+TEST(OSMTest, LessThanTwoNodes){
+    auto OSMDataSource = std::make_shared< CStringDataSource >("<?xml version='1.0' encoding='UTF-8'?>\n"
+                                                                    "<osm version=\"0.6\" generator=\"osmconvert 0.8.5\">\n"
+                                                                    "  <node id=\"1\" lat=\"38.5\" lon=\"-121.7\"/>\n"
+                                                                    "  <node id=\"2\" lat=\"38.5\" lon=\"-121.8\"/>\n"
+                                                                    "  <way id=\"100\">\n"
+                                                                    "    <nd ref=\"4399281377\"/>\n"
+                                                                    "  </way>\n"
+                                                                    "</osm>"
+                                                                    );
+
+    auto OSMReader = std::make_shared< CXMLReader >(OSMDataSource);
+    COpenStreetMap OpenStreetMap(OSMReader);
+
+    EXPECT_EQ(OpenStreetMap.NodeCount(),2);
+    EXPECT_EQ(OpenStreetMap.WayCount(),0);
+
+    auto TempWay = OpenStreetMap.WayByIndex(0);
+    EXPECT_EQ(TempWay, nullptr);
+}
+
+TEST(OSMTest, EmptyFile){
+    auto OSMDataSource = std::make_shared< CStringDataSource >("<?xml version='1.0' encoding='UTF-8'?>\n"
+                                                                    "</osm>" 
+                                                              );
+
+    auto OSMReader = std::make_shared< CXMLReader >(OSMDataSource);
+    COpenStreetMap OpenStreetMap(OSMReader);
+
+    EXPECT_EQ(OpenStreetMap.NodeCount(),0);
+    EXPECT_EQ(OpenStreetMap.WayCount(),0);
 }
