@@ -11,7 +11,7 @@ See CBusSystem for descriptions of StopCount(), RouteCount, StopByIndex, StopByI
 ## Constructor
 
 #### CCSVBusSystem(std::shared_ptr<CDSVReader> stopsrc, std::shared_ptr<CDSVReader> routesrc);
-The constructor accepts two CDSVReader objects stopsrc and routesrc for stops and for routes respectively. The stops CSV file mustf have stop_id and node_id columns. The routes CSV file must have route and stop_id columns. The constructor parses through both files and stores the data through the functions ReadStops and ReadRoutes into DStopByIndex, DStopsByID, DRoutesByIndex, and DRoutesByName. 
+The constructor accepts two CDSVReader objects stopsrc and routesrc for stops and for routes respectively. The stops CSV file must have stop_id and node_id columns. The routes CSV file must have route and stop_id columns. The constructor parses through both files and stores the data through the functions ReadStops and ReadRoutes into DStopByIndex, DStopsByID, DRoutesByIndex, and DRoutesByName. 
 
 ## Destructor
 
@@ -26,3 +26,6 @@ If a duplicate stop ID is found in the stops CSV, the system will stop parsing.
 If a route references a stop ID that doesn't exist in the stops CSV, the system will stop parsing.
 
 Data loaded before an error will be kept. For example, if three of five routes were loaded in, and the system finds an error in the fourth route, it will keep the three routes and will not load the fourth or fifth.
+
+## Usage/Examples
+The system can be used through the CBusSystem interface to access stops and routes. See CBusSystem.md for examples.
