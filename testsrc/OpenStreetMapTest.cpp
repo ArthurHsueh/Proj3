@@ -2,6 +2,7 @@
 #include "OpenStreetMap.h"
 #include "StreetMap.h"
 #include "StringDataSource.h"
+
 #include <limits>
 
 TEST(OSMTest, SimpleFiles){

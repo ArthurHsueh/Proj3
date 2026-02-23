@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites tests="1" failures="0" disabled="0" errors="0" time="0." timestamp="2026-02-23T02:51:05.916" name="AllTests">
-  <testsuite name="CSVBusSystem" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-02-23T02:51:05.916">
-    <testcase name="SimpleFiles" file="testsrc/CSVBusSystemTest.cpp" line="5" status="run" result="completed" time="0." timestamp="2026-02-23T02:51:05.916" classname="CSVBusSystem" />
+<testsuites tests="22" failures="0" disabled="0" errors="0" time="0." timestamp="2026-02-23T04:43:51.973" name="AllTests">
+  <testsuite name="CSVBusSystem" tests="22" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-02-23T04:43:51.973">
+    <testcase name="SimpleFiles" file="testsrc/CSVBusSystemTest.cpp" line="5" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="SStopTest" file="testsrc/CSVBusSystemTest.cpp" line="34" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="SRouteTest" file="testsrc/CSVBusSystemTest.cpp" line="50" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="OutOfBoundsIndex" file="testsrc/CSVBusSystemTest.cpp" line="66" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="OutOfBoundsID" file="testsrc/CSVBusSystemTest.cpp" line="83" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="StopByIndexTest" file="testsrc/CSVBusSystemTest.cpp" line="100" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="StopByIDTest" file="testsrc/CSVBusSystemTest.cpp" line="118" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="RouteByIndexTest" file="testsrc/CSVBusSystemTest.cpp" line="135" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="RouteByNameTest" file="testsrc/CSVBusSystemTest.cpp" line="153" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="RouteStopCount" file="testsrc/CSVBusSystemTest.cpp" line="169" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="RouteGetStopID" file="testsrc/CSVBusSystemTest.cpp" line="185" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="RouteGetStopIDOutOfBounds" file="testsrc/CSVBusSystemTest.cpp" line="204" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="LotsOfNodes" file="testsrc/CSVBusSystemTest.cpp" line="221" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="LotsOfRoutes" file="testsrc/CSVBusSystemTest.cpp" line="254" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="EmptyBusSystem" file="testsrc/CSVBusSystemTest.cpp" line="291" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="NonExistentStop" file="testsrc/CSVBusSystemTest.cpp" line="308" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="DuplicateStop" file="testsrc/CSVBusSystemTest.cpp" line="323" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="MissingStopHeader" file="testsrc/CSVBusSystemTest.cpp" line="337" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="MissingRouteHeader" file="testsrc/CSVBusSystemTest.cpp" line="347" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="EmptyStopInput" file="testsrc/CSVBusSystemTest.cpp" line="358" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="RoutesHaveSameStop" file="testsrc/CSVBusSystemTest.cpp" line="368" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
+    <testcase name="ErrorOnThirdRoute" file="testsrc/CSVBusSystemTest.cpp" line="382" status="run" result="completed" time="0." timestamp="2026-02-23T04:43:51.973" classname="CSVBusSystem" />
   </testsuite>
 </testsuites>
