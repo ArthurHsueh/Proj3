@@ -49,31 +49,31 @@ all: directories run_strtest run_strsrctest run_strsinktest run_dsvtest run_xmlt
 
 run_strtest: $(TEST_STR_TARGET)
 	$(TEST_STR_TARGET) --gtest_output=xml:$(TESTTMP_DIR)/$@
-	#mv $(TESTTMP_DIR)/$@ $@
+	mv $(TESTTMP_DIR)/$@ $@
 
 run_strsrctest: $(TEST_STRSRC_TARGET)
 	$(TEST_STRSRC_TARGET) --gtest_output=xml:$(TESTTMP_DIR)/$@
-	#mv $(TESTTMP_DIR)/$@ $@
+	mv $(TESTTMP_DIR)/$@ $@
 
 run_strsinktest: $(TEST_STRSINK_TARGET)
 	$(TEST_STRSINK_TARGET) --gtest_output=xml:$(TESTTMP_DIR)/$@
-	#mv $(TESTTMP_DIR)/$@ $@
+	mv $(TESTTMP_DIR)/$@ $@
 
 run_dsvtest: $(TEST_DSV_TARGET)
 	$(TEST_DSV_TARGET) --gtest_output=xml:$(TESTTMP_DIR)/$@
-	#mv $(TESTTMP_DIR)/$@ $@
+	mv $(TESTTMP_DIR)/$@ $@
 
 run_xmltest: $(TEST_XML_TARGET)
 	$(TEST_XML_TARGET) --gtest_output=xml:$(TESTTMP_DIR)/$@
-	#mv $(TESTTMP_DIR)/$@ $@
+	mv $(TESTTMP_DIR)/$@ $@
 
 run_csvbstest: $(TEST_CSVBS_TARGET)
 	$(TEST_CSVBS_TARGET) --gtest_output=xml:$(TESTTMP_DIR)/$@
-	#mv $(TESTTMP_DIR)/$@ $@
+	mv $(TESTTMP_DIR)/$@ $@
 
 run_osmtest: $(TEST_OSM_TARGET)
 	$(TEST_OSM_TARGET) --gtest_output=xml:$(TESTTMP_DIR)/$@
-	#mv $(TESTTMP_DIR)/$@ $@
+	mv $(TESTTMP_DIR)/$@ $@
 
 gencoverage:
 	lcov --capture --directory . --output-file $(TESTCOVER_DIR)/coverage.info --ignore-errors inconsistent,source

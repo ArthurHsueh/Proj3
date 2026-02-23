@@ -3,6 +3,9 @@
 #include <iostream>
 
 struct COpenStreetMap::SImplementation{
+    const TNodeID InvalidNodeID = std::numeric_limits<TNodeID>::max();
+    const TNodeID InvalidWayID = std::numeric_limits<TNodeID>::max();
+
     const std::string DOSMTag = "osm";
     const std::string DNodeTag = "node";
     const std::string DTagTag = "tag";
@@ -76,7 +79,7 @@ struct COpenStreetMap::SImplementation{
         TNodeID GetNodeID(std::size_t index) const noexcept override{
             size_t size = NodeCount();
             if (index >= size){
-                return InvalidNodeID;
+                return CStreetMap::InvalidWayID;
             }
             return Nodes[index];
         }
