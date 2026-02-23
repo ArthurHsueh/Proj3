@@ -1,5 +1,5 @@
 # Proj3
-This project implements classes which parse through bus route information and Open Street Map (OSM). files utilizing the DSV and XML classes from Project 2.
+This project implements classes which parse through bus route information and Open Street Map (OSM) files utilizing the DSV and XML classes from Project 2.
 
 ## Contributors
 Student 1: Arthur Hsueh (922681552)
