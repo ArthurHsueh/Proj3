@@ -520,7 +520,7 @@ TEST(OSMTest, MissingNodeID){
     COpenStreetMap OpenStreetMap(OSMReader);
 
     EXPECT_EQ(OpenStreetMap.NodeCount(),1); //The second node is invalid
-    EXPECT_EQ(OpenStreetMap.WayCount(),0); //Stop parsing if we see and error
+    EXPECT_EQ(OpenStreetMap.WayCount(),0); //Stop parsing if we see an error
 
     auto TempWay = OpenStreetMap.WayByIndex(0);
     EXPECT_EQ(TempWay, nullptr);
