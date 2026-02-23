@@ -35,6 +35,43 @@ TEST_DSV_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSink.o $(TESTOBJ_DIR)/DSVWriter.o 
 TEST_XML_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSource.o $(TESTOBJ_DIR)/XMLReader.o $(TESTOBJ_DIR)/XMLTest.o
 TEST_CSVBS_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSource.o $(TESTOBJ_DIR)/DSVReader.o $(TESTOBJ_DIR)/CSVBusSystem.o $(TESTOBJ_DIR)/CSVBusSystemTest.o
 TEST_OSM_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSource.o $(TESTOBJ_DIR)/XMLReader.o $(TESTOBJ_DIR)/OpenStreetMap.o $(TESTOBJ_DIR)/OpenStreetMapTest.o
+# Define the tools in use
+AR=ar
+CC=gcc
+CXX=g++
+
+# Define the directories
+INC_DIR			= ./include
+SRC_DIR			= ./src
+BIN_DIR			= ./bin
+OBJ_DIR			= ./obj
+LIB_DIR			= ./lib
+TESTSRC_DIR		= ./testsrc
+TESTOBJ_DIR		= ./testobj
+TESTBIN_DIR		= ./testbin
+TESTCOVER_DIR 	= ./htmlcov
+TESTTMP_DIR		= ./testtmp
+
+# Define the flags
+PKGS			= expat
+DEFINES			= 
+INCLUDE			+= -I $(INC_DIR) 
+CFLAGS			+= `pkg-config --cflags $(PKGS)`
+CPPFLAGS		+= -std=c++20
+LDFLAGS			= `pkg-config --libs $(PKGS)`
+
+TEST_CFLAGS		= $(CFLAGS) -O0 -g --coverage
+TEST_CPPFLAGS	= $(CPPFLAGS) -fno-inline
+TEST_LDFLAGS	= $(LDFLAGS) -lgtest -lgtest_main -lpthread
+
+# Define the test object files
+TEST_STR_OBJ_FILES	= $(TESTOBJ_DIR)/StringUtilsTest.o $(TESTOBJ_DIR)/StringUtils.o
+TEST_STRSRC_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSource.o $(TESTOBJ_DIR)/StringDataSourceTest.o
+TEST_STRSINK_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSink.o $(TESTOBJ_DIR)/StringDataSinkTest.o
+TEST_DSV_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSink.o $(TESTOBJ_DIR)/DSVWriter.o $(TESTOBJ_DIR)/DSVTest.o $(TESTOBJ_DIR)/DSVReader.o $(TESTOBJ_DIR)/StringDataSource.o
+TEST_XML_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSink.o $(TESTOBJ_DIR)/XMLWriter.o $(TESTOBJ_DIR)/XMLTest.o $(TESTOBJ_DIR)/XMLReader.o $(TESTOBJ_DIR)/StringDataSource.o $(TESTOBJ_DIR)/StringUtils.o
+TEST_CSVBS_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSource.o $(TESTOBJ_DIR)/DSVReader.o $(TESTOBJ_DIR)/CSVBusSystem.o $(TESTOBJ_DIR)/CSVBusSystemTest.o
+TEST_OSM_OBJ_FILES = $(TESTOBJ_DIR)/StringDataSource.o $(TESTOBJ_DIR)/XMLReader.o $(TESTOBJ_DIR)/OpenStreetMap.o $(TESTOBJ_DIR)/OpenStreetMapTest.o
 # Define the test target
 TEST_STR_TARGET	= $(TESTBIN_DIR)/teststrutils
 TEST_STRSRC_TARGET	= $(TESTBIN_DIR)/teststrdatasource 
