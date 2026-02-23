@@ -54,8 +54,11 @@ A pure virtual function that, when implemented, returns the total number of rout
 #### virtual std::shared_ptr<SStop> StopByIndex(std::size_t index) const noexcept = 0;
 A pure virtual function that, when implemented, returns the stop at the given index. Returns nullptr if the index is greater than or equal to StopCount().
 
+#### virtual std::shared_ptr<SStop> StopByID(TStopID id) const noexcept = 0;
+A pure virtual function that, when implemented, returns the stop with the given stop ID. Returns nullptr if the ID does not exist within the system.
+
 #### virtual std::shared_ptr<SRoute> RouteByIndex(std::size_t index) const noexcept = 0;
-A pure virtual function that, when implemented, returns the route at the given index. Returns nullptr if the index is greater than or equal to StopCount().
+A pure virtual function that, when implemented, returns the route at the given index. Returns nullptr if the index is greater than or equal to RouteCount().
 
 #### virtual std::shared_ptr<SRoute> RouteByName(const std::string &name) const noexcept = 0;
 A pure virtual function that, when implemented, returns a route with the given name. Returns nullptr if the name does not exist within the system.

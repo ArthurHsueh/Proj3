@@ -1,9 +1,16 @@
 # Proj3
 
-## Known Issues
-Googletest for CSVBusSystem has 88.9 percent coverage, but that's because i can't really test destructors
+This project implements classes which parse through bus route information and Open Street Map (OSM). files utilizing the DSV and XML classes from Project 2.
 
-## Sources
+## Contributors
+Student 1: Arthur Hsueh (922681552)
+
+Student 2: Michael Hua (923946746)
+
+## Project Status
+Googletest for CSVBusSystem has 100 percent line coverage, but 88.9 percent function coverage since destructors are not tested.
+
+## Code References
 Unordered Map in C++ https://www.geeksforgeeks.org/cpp/unordered_map-in-cpp-stl/
 
 Find function in C++ https://www.geeksforgeeks.org/cpp/unordered_map-find-in-c-stl/
